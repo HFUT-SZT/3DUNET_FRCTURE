@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environments
+.env
+.env.*
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Data (avoid committing large datasets)
+*/data/
+inversion_model/data/
+surrogate_model/data/
+*.npy
+*.npz
+
+# Models / large binaries (use Git LFS or keep local)
+*.pth
+*.pt
+*.ckpt
+*.onnx
