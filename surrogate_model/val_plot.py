@@ -44,8 +44,8 @@ def calculate_rmse(predicted, actual):
     return rmse
 
 # Load normalized matrices
-M_norm1 = np.load('./data/predictdata/output6382_2.npy')  # predicted data
-M_norm2 = np.load('./data/referenceData/normalized_pressure6382_2.npy')  # reference data
+M_norm1 = np.load('./data/predictdata/output6400_2.npy')  # predicted data
+M_norm2 = np.load('./data/referenceData/normalized_pressure6400_2.npy')  # reference data
 
 # Min and max used during normalization (assumed)
 min_value = -57565.62595383519

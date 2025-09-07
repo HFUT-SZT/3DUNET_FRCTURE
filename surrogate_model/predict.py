@@ -32,12 +32,12 @@ def predict(model, input_data):
 
 
 if __name__ == "__main__":
-    input_file_path = "./data/frcmatrix/frc_matrix6382.npy"
+    input_file_path = "./data/frcmatrix/frc_matrix6400.npy"
     model_file_path = "./model/best_model.pth"
     output_file_paths = [
-        "./data/predictdata/output6382_1.npy",
-        "./data/predictdata/output6382_2.npy",
-        "./data/predictdata/output6382_3.npy",
+        "./data/predictdata/output6400_1.npy",
+        "./data/predictdata/output6400_2.npy",
+        "./data/predictdata/output6400_3.npy",
     ]
 
     input_data = np.load(input_file_path)

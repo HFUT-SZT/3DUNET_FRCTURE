@@ -1,4 +1,4 @@
-3D UNet - Minimal Dependencies (with versions)
+3D UNet for surrogate model and inversion model
 
 Tested environment:
 - Python 3.9
