@@ -16,15 +16,15 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Data (avoid committing large datasets)
-*/data/
-inversion_model/data/
-surrogate_model/data/
-*.npy
-*.npz
+# Data (now tracked via Git LFS; allow these paths)
+# (Do not ignore data folders or .npy/.npz files)
+# */data/
+# inversion_model/data/
+# surrogate_model/data/
+# *.npy
+# *.npz
 
-# Models / large binaries (use Git LFS or keep local)
-*.pth
-*.pt
+# Models / large binaries (tracked via Git LFS)
+# Keep ignoring non-LFS large formats if any
 *.ckpt
 *.onnx
