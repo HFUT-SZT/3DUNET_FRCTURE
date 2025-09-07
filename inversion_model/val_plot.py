@@ -1,26 +1,24 @@
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-# 强制使用系统浏览器进行渲染
+# Force using system web browser for rendering
 import plotly.io as pio
 pio.renderers.default = "browser"
 
 # Load two datasets
 data1 = np.load('./data/referenceData/frc_matrix6580.npy')
-# data1 = np.load('./predictdata/863predicted_test_output7_3.npy')
 data2_full = np.load('./data/predictdata/6580predicted_test_output_EC.npy')
-# data2 = np.where(data2 > 0.4, 1, 0)
 
-# 阈值化参考数据用于第一幅图（蓝色点）
+# Threshold reference data for the first plot (blue points)
 data1 = np.where(data1 > 0.5, 1, 0)
-# 第二幅图用原始数值着色，这里仅用掩码筛选显示的点
+# For the second plot, color by raw values; here we only use a mask to select points to display
 t2_thresh = 0.4
 mask2 = data2_full > t2_thresh
 
 # Get the coordinates of the non-zero (or significant) points for both datasets
 x1, y1, z1 = np.nonzero(data1)
 x2, y2, z2 = np.nonzero(mask2)
-# 取对应点的原始数值作为颜色
+# Use the raw values of the selected points as colors
 colors2 = data2_full[mask2].astype(float)
 cmin2 = float(colors2.min()) if colors2.size > 0 else 0.0
 cmax2 = float(colors2.max()) if colors2.size > 0 else 1.0
@@ -42,18 +40,18 @@ trace2 = go.Scatter3d(
     mode='markers',
     marker=dict(
         size=1,
-        color=colors2,                 # 使用原始数值着色
-        colorscale='Viridis',          # 颜色映射
+        color=colors2,                 # Color by raw values
+        colorscale='Viridis',          # Colormap
         cmin=cmin2,
         cmax=cmax2,
-        showscale=True,                # 显示颜色条
+        showscale=True,                # Show colorbar
         colorbar=dict(title='Value'),
         opacity=0.8
     ),
     name='Dataset 2'
 )
 
-# 创建左右两个 3D 子图
+# Create two side-by-side 3D subplots
 fig = make_subplots(
     rows=1,
     cols=2,
@@ -62,11 +60,11 @@ fig = make_subplots(
     horizontal_spacing=0.05
 )
 
-# 将各自的 trace 放入对应子图
+# Add each trace to its corresponding subplot
 fig.add_trace(trace1, row=1, col=1)
 fig.add_trace(trace2, row=1, col=2)
 
-# 更新两个子图的坐标轴范围与纵横比，保持一致
+# Update axis ranges and aspect ratios for both subplots to be consistent
 fig.update_layout(
     title="3D Point Cloud of Two Datasets (Side-by-Side)",
     width=1200,

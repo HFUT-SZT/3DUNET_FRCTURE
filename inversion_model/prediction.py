@@ -11,7 +11,7 @@ model = UNet3D()
 # Move the model to GPU if available
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
-# 安全加载模型权重
+
 model.load_state_dict(
     torch.load(
         './model/best_model.pth',
