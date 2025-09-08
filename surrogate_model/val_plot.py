@@ -43,13 +43,22 @@ def calculate_rmse(predicted, actual):
     rmse = np.sqrt(np.mean(diff**2))
     return rmse
 
-# Load normalized matrices
+# Load normalized matrices  （group2）
 M_norm1 = np.load('./data/predictdata/output6400_2.npy')  # predicted data
 M_norm2 = np.load('./data/referenceData/normalized_pressure6400_2.npy')  # reference data
 
-# Min and max used during normalization (assumed)
+# global_min1 = -57574.703230342304
+# global_max1 = 33487.964979615776
+# global_min2 = -57565.62595383519
+# global_max2 = 33239.17167432396
+# global_min3 = -54876.42604464349
+# global_max3 = 161509.1730952983
+
+# Min and max used during normalization (assumed) group2
 min_value = -57565.62595383519
 max_value = 33239.17167432396
+
+
 
 # Denormalize to original pressure matrices
 M_original1 = denormalize_matrix(M_norm1, min_value, max_value)  # predicted pressure
