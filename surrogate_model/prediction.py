@@ -18,7 +18,7 @@ def load_model(model_path, out_channels=3):
         if 'final_conv.0.bias' in state and model.final_conv[0].bias is not None:
             pretrained_b = state['final_conv.0.bias']    # [4]
             model.final_conv[0].bias.copy_(pretrained_b[:out_channels])
-
+ 
     model.eval()
     return model
 
